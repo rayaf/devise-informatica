@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Processor < ApplicationRecord
   has_many :orders
   
