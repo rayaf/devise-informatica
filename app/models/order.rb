@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
-  has_many :ram_slots
-  has_many :ram_memories, through: :ram_slots
+  has_many :ram_slots, dependent: :destroy
+  has_many :ram_memories, through: :ram_slots, dependent: :destroy
   
   belongs_to :user
   belongs_to :processor

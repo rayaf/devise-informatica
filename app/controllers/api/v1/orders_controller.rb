@@ -52,7 +52,7 @@ class Api::V1::OrdersController < ApplicationController
   def destroy
     order = current_user.orders.find(params[:id])
     order.destroy
-    head 201
+    head 204
   end
 
   private
