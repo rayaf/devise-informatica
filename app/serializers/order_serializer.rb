@@ -1,7 +1,5 @@
 class OrderSerializer
   include JSONAPI::Serializer
-  jsonapi_type :ram_slots
-
   attributes :id
 
   has_many :ram_slots, serializer: RamSlotSerializer
