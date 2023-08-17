@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :order do
+    association :user, factory: :user
     association :processor, factory: :processor
     association :motherboard, factory: :motherboard
     association :graphic_card, factory: :graphic_card

@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_many :ram_slots
   has_many :ram_memories, through: :ram_slots
   
+  belongs_to :user
   belongs_to :processor
   belongs_to :motherboard
   belongs_to :graphic_card, optional: true

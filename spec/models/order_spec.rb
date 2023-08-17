@@ -7,6 +7,7 @@ RSpec.describe Order, type: :model do
 
     it { should have_many(:ram_slots) }
     it { should have_many(:ram_memories).through(:ram_slots) }
+    it { should belong_to(:user) }
     it { should belong_to(:processor) }
     it { should belong_to(:motherboard) }
     it { should belong_to(:graphic_card).optional }
