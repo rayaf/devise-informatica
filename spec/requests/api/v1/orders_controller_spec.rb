@@ -22,6 +22,17 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
       parsed_response = JSON.parse(response.body)
       expect(parsed_response.length).to eq(orders.count)
     end
+
+    it "returns filtered orders by processor_id" do
+      processor = create(:processor)
+      order_with_processor = create(:order, user: user, processor: processor)
+  
+      get :index, params: { q: { processor_id_eq: processor.id } }
+      parsed_response = JSON.parse(response.body)
+  
+      expect(parsed_response.length).to eq(1)
+      expect(parsed_response[0]["processor"]["id"]).to eq(processor.id)
+    end
   end
 
   describe "GET #show" do
