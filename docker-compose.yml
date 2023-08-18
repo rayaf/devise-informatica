@@ -7,5 +7,7 @@ services:
       - '3000:3000'
     volumes: 
       - ./:/var/www/
+      - ./db/:/var/www/db 
     working_dir: /var/www/
+    entrypoint: ["./entrypoint.sh"]
     command: bundle exec puma
