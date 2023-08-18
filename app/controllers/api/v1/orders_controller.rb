@@ -4,7 +4,7 @@ class Api::V1::OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    orders = current_user.orders.all
+    orders = current_user.orders.ransack(params[:q]).result
     
     render json: orders, include: [
       :processor,

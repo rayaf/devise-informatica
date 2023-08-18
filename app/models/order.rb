@@ -18,8 +18,11 @@ class Order < ApplicationRecord
   validate :validate_processor_motherboard_compatibility
   validate :validate_ram_size_count
 
-
   private
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "graphic_card_id", "id", "motherboard_id", "processor_id", "updated_at", "user_id"]
+  end
 
   def validate_ram_slots_count
     return if ram_slots.nil? || motherboard.nil?

@@ -17,6 +17,8 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
 
+gem 'ransack'
+
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
